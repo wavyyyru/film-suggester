@@ -1,0 +1,1 @@
+export const STORE_RANDOM_MOVIE = 'STORE_RANDOM_MOVIE'

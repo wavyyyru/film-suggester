@@ -29,6 +29,12 @@
         ]
       }
     ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
     "arrow-body-style": "off",
     "eol-last": "off",
     "no-unused-vars": "warn",
@@ -39,6 +45,9 @@
     "indent": "off",
     "spaced-comment": "off",
     "no-underscore-dangle": "off",
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "react/forbid-prop-types": "off",
+    "react/destructuring-assignment": "off",
+    "no-debugger": "off"
   }
 }
