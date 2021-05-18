@@ -8,5 +8,5 @@ export const MovieSuggestionContainer = () => {
   if (appState.randomFetchedMovie === null) {
     return <Loader />
   }
-  return <MovieSuggestion />
+  return <MovieSuggestion randomFetchedMovie={appState.randomFetchedMovie} />
 }
