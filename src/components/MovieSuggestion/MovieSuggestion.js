@@ -3,9 +3,11 @@
 /* eslint-disable react/require-default-props */
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { Paper, Typography } from '@material-ui/core'
+import { Button, Paper, Select, Typography } from '@material-ui/core'
 import AccessTimeIcon from '@material-ui/icons/AccessTime'
 import GradeIcon from '@material-ui/icons/Grade'
+import { useDispatch } from 'react-redux'
+import { fetchMovieData } from '../../redux/appActions'
 
 export const Wrapper = styled.div`
   height: 100%;
@@ -97,9 +99,14 @@ export const PlotSummaryHeading = styled(Typography)`
   font-weight: 500;
 `
 
+export const SearchAgainButton = styled(Button)`
+  margin-top: 20px;
+`
+
 // const ImdbIcon = <FontAwesomeIcon icon={faImdb} />
 export const MovieSuggestion = (props) => {
   debugger
+  const dispatch = useDispatch()
   return (
     <Wrapper>
       <GridContainer elevation={6}>
@@ -138,11 +145,20 @@ export const MovieSuggestion = (props) => {
               Plot summary
             </PlotSummaryHeading>
             <Typography variant="body1">
-              {props.randomFetchedMovie.plotSummary.text
+              {props.randomFetchedMovie.plotSummary
                 ? props.randomFetchedMovie.plotSummary.text
                 : props.randomFetchedMovie.plotOutline.text}
             </Typography>
           </PlotSummary>
+          <SearchAgainButton
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              dispatch(fetchMovieData(props.chosenGenreEndpoint))
+            }}
+          >
+            Search again
+          </SearchAgainButton>
         </InfoContainer>
       </GridContainer>
     </Wrapper>

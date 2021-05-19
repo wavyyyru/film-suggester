@@ -48,6 +48,8 @@
     "operator-linebreak": "off",
     "react/forbid-prop-types": "off",
     "react/destructuring-assignment": "off",
-    "no-debugger": "off"
+    "no-debugger": "off",
+    "consistent-return": "off",
+    "no-else-return": "off"
   }
 }

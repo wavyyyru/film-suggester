@@ -11,7 +11,10 @@ import styles from './Home.module.css'
 import mainartwork from '../../assets/homepage-art.png'
 import { genres } from '../../predefined_data/genres'
 import { routes } from '../../routes/routes'
-import { fetchMovieData } from '../../redux/appActions'
+import {
+  fetchMovieData,
+  storeChosenGenreEndpoint,
+} from '../../redux/appActions'
 
 const StyledTextField = styled(TextField)`
   min-width: 250px;
@@ -28,6 +31,7 @@ export const Home = (props) => {
   const formik = useFormik({
     initialValues: props.initialValues,
     onSubmit: (values) => {
+      dispatch(storeChosenGenreEndpoint(values.chosenGenreEndpoint))
       dispatch(fetchMovieData(values.chosenGenreEndpoint))
       // alert(
       //   JSON.stringify(

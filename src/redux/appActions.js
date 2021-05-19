@@ -1,11 +1,33 @@
 import axios from 'axios'
-import { STORE_RANDOM_MOVIE } from './actionTypes'
+import {
+  STORE_CHOSEN_GENRE_ENDPOINT,
+  STORE_RANDOM_MOVIE,
+  TOGGLE_INFO_UPDATE,
+} from './actionTypes'
 
 export function storeRandomMovie(movie) {
   return (dispatch) => {
     dispatch({
       type: STORE_RANDOM_MOVIE,
       payload: movie,
+    })
+  }
+}
+
+export function toggleInfoUpdate(value) {
+  return (dispatch) => {
+    dispatch({
+      type: TOGGLE_INFO_UPDATE,
+      payload: value,
+    })
+  }
+}
+
+export function storeChosenGenreEndpoint(endpoint) {
+  return (dispatch) => {
+    dispatch({
+      type: STORE_CHOSEN_GENRE_ENDPOINT,
+      payload: endpoint,
     })
   }
 }
@@ -38,6 +60,7 @@ export function fetchRandomMovieFromList(movieId) {
 
 export function fetchMovieData(query) {
   return async (dispatch) => {
+    dispatch(toggleInfoUpdate(true))
     try {
       const movieList = await fetchMovieList(query)
       const movieId =
@@ -51,6 +74,7 @@ export function fetchMovieData(query) {
         type: STORE_RANDOM_MOVIE,
         payload: response.data,
       })
+      dispatch(toggleInfoUpdate(false))
     } catch (error) {
       if (error.response) {
         // The request was made and the server responded with a status code

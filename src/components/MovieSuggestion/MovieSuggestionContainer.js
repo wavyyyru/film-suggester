@@ -5,8 +5,13 @@ import { Loader } from '../Loader/Loader'
 
 export const MovieSuggestionContainer = () => {
   const appState = useSelector((state) => state.applicationState)
-  if (appState.randomFetchedMovie === null) {
+  if (appState.movieInfoIsBeingUpdated === true) {
     return <Loader />
   }
-  return <MovieSuggestion randomFetchedMovie={appState.randomFetchedMovie} />
+  return (
+    <MovieSuggestion
+      randomFetchedMovie={appState.randomFetchedMovie}
+      chosenGenreEndpoint={appState.chosenGenreEndpoint}
+    />
+  )
 }
