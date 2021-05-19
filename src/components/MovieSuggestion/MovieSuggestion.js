@@ -4,6 +4,8 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Paper, Typography } from '@material-ui/core'
+import AccessTimeIcon from '@material-ui/icons/AccessTime'
+import GradeIcon from '@material-ui/icons/Grade'
 
 export const Wrapper = styled.div`
   height: 100%;
@@ -29,9 +31,10 @@ export const GridContainer = styled(Paper)`
 `
 export const PosterImage = styled.img`
   border-radius: 8px;
-  min-width: 300px;
-  width: 100%;
-  height: 100%;
+  width: 448px;
+  height: 665px;
+  //width: 100%;
+  //height: 100%;
 `
 
 export const PosterContainer = styled(Paper)`
@@ -80,9 +83,12 @@ export const ImdbRating = styled.div`
 `
 
 export const PlotSummary = styled(Paper)`
-  margin-top: 25px;
+  margin-top: 20px;
   background-color: rgba(255, 255, 255, 0.3);
   padding: 10px;
+  max-width: 90%;
+  max-height: 300px;
+  overflow-y: auto;
 `
 
 export const PlotSummaryHeading = styled(Typography)`
@@ -93,9 +99,7 @@ export const PlotSummaryHeading = styled(Typography)`
 
 // const ImdbIcon = <FontAwesomeIcon icon={faImdb} />
 export const MovieSuggestion = (props) => {
-  useEffect(() => {
-    return () => {}
-  })
+  debugger
   return (
     <Wrapper>
       <GridContainer elevation={6}>
@@ -113,9 +117,19 @@ export const MovieSuggestion = (props) => {
           </TagsWrapper>
           <ImdbRating>
             <Typography variant="h6" component="p">
+              <GradeIcon fontSize="small" />
+              &nbsp;
               {`IMDb rating: ${props.randomFetchedMovie.ratings.rating} / 10`}
             </Typography>
+            {props.randomFetchedMovie.ratings.canRate ? (
+              <Typography variant="caption" display="block">
+                {props.randomFetchedMovie.certificates.US[0].ratingReason}
+              </Typography>
+            ) : null}
+
             <Typography variant="h6" component="p">
+              <AccessTimeIcon fontSize="small" />
+              &nbsp;
               {`Running time: ${props.randomFetchedMovie.title.runningTimeInMinutes} minutes`}
             </Typography>
           </ImdbRating>
@@ -124,7 +138,9 @@ export const MovieSuggestion = (props) => {
               Plot summary
             </PlotSummaryHeading>
             <Typography variant="body1">
-              {props.randomFetchedMovie.plotSummary.text}
+              {props.randomFetchedMovie.plotSummary.text
+                ? props.randomFetchedMovie.plotSummary.text
+                : props.randomFetchedMovie.plotOutline.text}
             </Typography>
           </PlotSummary>
         </InfoContainer>
