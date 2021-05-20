@@ -2,8 +2,7 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/require-default-props */
 import React from 'react'
-import { Button, MenuItem, TextField, Typography } from '@material-ui/core'
-import styled from 'styled-components'
+import { MenuItem, Typography } from '@material-ui/core'
 import { useFormik } from 'formik'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
@@ -15,15 +14,16 @@ import {
   fetchMovieData,
   storeChosenGenreEndpoint,
 } from '../../redux/appActions'
-
-const StyledTextField = styled(TextField)`
-  min-width: 250px;
-`
-
-const StyledButton = styled(Button)`
-  margin-top: 15px;
-  margin-left: 30px;
-`
+import {
+  GenreSelect,
+  GenreSelectForm,
+  HomeArt,
+  HomeGridContainer,
+  HomeGridItem,
+  HomeGridWrapper,
+  HomeWrapper,
+  SearchMovieButton,
+} from './Styled'
 
 export const Home = (props) => {
   const dispatch = useDispatch()
@@ -53,12 +53,10 @@ export const Home = (props) => {
     },
   })
   return (
-    <div className={styles.home__wrapper}>
-      <div className={styles.home__gridWrapper}>
-        <div className={styles.home__gridContainer}>
-          <div
-            className={`${styles.home__gridItemContainer} ${styles.home__gridLeftItem}`}
-          >
+    <HomeWrapper>
+      <HomeGridWrapper>
+        <HomeGridContainer>
+          <HomeGridItem>
             <Typography variant="h3" component="h1">
               Hello there!
             </Typography>
@@ -66,11 +64,8 @@ export const Home = (props) => {
               Looking for a movie to watch? Let us find a proper one just for
               you!
             </Typography>
-            <form
-              onSubmit={formik.handleSubmit}
-              className={styles.genreSelectionContainer}
-            >
-              <StyledTextField
+            <GenreSelectForm onSubmit={formik.handleSubmit}>
+              <GenreSelect
                 variant="standard"
                 margin="dense"
                 id="chosenGenre"
@@ -88,21 +83,21 @@ export const Home = (props) => {
                     </MenuItem>
                   )
                 })}
-              </StyledTextField>
-              <StyledButton variant="contained" color="primary" type="submit">
+              </GenreSelect>
+              <SearchMovieButton
+                variant="contained"
+                color="primary"
+                type="submit"
+              >
                 Find a movie!
-              </StyledButton>
-            </form>
-          </div>
-          <div className={styles.home__gridItemContainer}>
-            <img
-              className={styles.homepageArt}
-              src={mainartwork}
-              alt="Watching a movie"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+              </SearchMovieButton>
+            </GenreSelectForm>
+          </HomeGridItem>
+          <HomeGridItem>
+            <HomeArt src={mainartwork} alt="Watching a movie" />
+          </HomeGridItem>
+        </HomeGridContainer>
+      </HomeGridWrapper>
+    </HomeWrapper>
   )
 }

@@ -1,13 +1,20 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/require-default-props */
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { Button, Paper, Select, Typography } from '@material-ui/core'
+import { Button, Paper, Typography } from '@material-ui/core'
 import AccessTimeIcon from '@material-ui/icons/AccessTime'
 import GradeIcon from '@material-ui/icons/Grade'
 import { useDispatch } from 'react-redux'
-import { fetchMovieData } from '../../redux/appActions'
+import RefreshIcon from '@material-ui/icons/Refresh'
+import FavoriteIcon from '@material-ui/icons/Favorite'
+import {
+  addMovieToFavorites,
+  fetchMovieData,
+  hideSuccessAlert,
+  showSuccessAlert,
+} from '../../redux/appActions'
 
 export const Wrapper = styled.div`
   height: 100%;
@@ -98,9 +105,29 @@ export const PlotSummaryHeading = styled(Typography)`
   text-transform: uppercase;
   font-weight: 500;
 `
+export const ButtonsContainer = styled.div`
+  margin-top: 20px;
+
+  button {
+    margin-right: 10px;
+    color: white;
+  }
+`
 
 export const SearchAgainButton = styled(Button)`
-  margin-top: 20px;
+  background-color: #4791db;
+
+  &:hover {
+    background-color: #1976d2;
+  }
+`
+
+export const WatchLaterButton = styled(Button)`
+  background-color: #e33371;
+
+  &:hover {
+    background-color: #dc004e;
+  }
 `
 
 // const ImdbIcon = <FontAwesomeIcon icon={faImdb} />
@@ -128,7 +155,7 @@ export const MovieSuggestion = (props) => {
               &nbsp;
               {`IMDb rating: ${props.randomFetchedMovie.ratings.rating} / 10`}
             </Typography>
-            {props.randomFetchedMovie.ratings.canRate ? (
+            {props.randomFetchedMovie.certificates ? (
               <Typography variant="caption" display="block">
                 {props.randomFetchedMovie.certificates.US[0].ratingReason}
               </Typography>
@@ -150,15 +177,30 @@ export const MovieSuggestion = (props) => {
                 : props.randomFetchedMovie.plotOutline.text}
             </Typography>
           </PlotSummary>
-          <SearchAgainButton
-            variant="contained"
-            color="primary"
-            onClick={() => {
-              dispatch(fetchMovieData(props.chosenGenreEndpoint))
-            }}
-          >
-            Search again
-          </SearchAgainButton>
+          <ButtonsContainer>
+            <SearchAgainButton
+              variant="contained"
+              onClick={() => {
+                dispatch(fetchMovieData(props.chosenGenreEndpoint))
+              }}
+            >
+              <RefreshIcon fontSize="small" />
+              &nbsp; Search again
+            </SearchAgainButton>
+            <WatchLaterButton
+              variant="contained"
+              onClick={() => {
+                dispatch(addMovieToFavorites(props.randomFetchedMovie))
+                dispatch(showSuccessAlert("Saved to 'Favorites'"))
+                setTimeout(() => {
+                  dispatch(hideSuccessAlert())
+                }, 6000)
+              }}
+            >
+              <FavoriteIcon fontSize="small" />
+              &nbsp; Save to favorites
+            </WatchLaterButton>
+          </ButtonsContainer>
         </InfoContainer>
       </GridContainer>
     </Wrapper>

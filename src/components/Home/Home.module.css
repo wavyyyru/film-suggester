@@ -1,67 +1,66 @@
-@keyframes pulse {
-    0% {
-        transform: translateY(0px);
-    }
+/*@keyframes pulse {*/
+/*    0% {*/
+/*        transform: translateY(0px);*/
+/*    }*/
 
-    50% {
-        transform: translateY(10px);
-    }
+/*    50% {*/
+/*        transform: translateY(10px);*/
+/*    }*/
 
-    100% {
-        transform: translateY(0px);
-    }
-}
+/*    100% {*/
+/*        transform: translateY(0px);*/
+/*    }*/
+/*}*/
 
-.home__wrapper {
-    height: 100%;
-}
+/*.home__wrapper {*/
+/*    height: 100%;*/
+/*}*/
 
-.home__gridWrapper {
-    height: 100%;
-    width: 80%;
-    margin: 0 auto;
-}
+/*.home__gridWrapper {*/
+/*    height: 100%;*/
+/*    width: 80%;*/
+/*    margin: 0 auto;*/
+/*}*/
 
-.home__gridContainer {
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-template-areas:
-    ". .";
-}
+/*.home__gridContainer {*/
+/*    height: 100%;*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr 1fr;*/
+/*    grid-template-rows: 1fr;*/
+/*    grid-template-areas:*/
+/*    ". .";*/
+/*}*/
 
-.home__gridItemContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+/*.home__gridItemContainer {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
 
-.home__gridLeftItem {
-    align-items: flex-start;
-}
+/*.home__gridLeftItem {*/
+/*    align-items: flex-start;*/
+/*}*/
 
-.genreSelectionContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
+/*.genreSelectionContainer {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
 
-.genreSelectionField {
-    min-width: 250px;
-}
+/*.genreSelectionField {*/
+/*    min-width: 250px;*/
+/*}*/
 
-.genreSelectionButton {
-    margin-top: 15px;
-    margin-left: 30px;
-}
+/*.genreSelectionButton {*/
+/*    margin-top: 15px;*/
+/*    margin-left: 30px;*/
+/*}*/
 
-.homepageArt {
-    width: 900px;
-    animation: pulse 2s infinite;
-}
+/*.homepageArt {*/
+/*    width: 900px;*/
+/*    animation: pulse 2s infinite;*/
+/*}*/
 
 

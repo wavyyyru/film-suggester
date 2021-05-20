@@ -1,21 +1,31 @@
 import React from 'react'
 import './App.css'
 import { Switch, Route } from 'react-router-dom'
+import Particles from 'react-particles-js'
+import styled from 'styled-components'
+import { StylesProvider } from '@material-ui/core/styles'
 import { HomeContainer } from './components/Home/HomeContainer'
 import { routes } from './routes/routes'
 import { MovieSuggestionContainer } from './components/MovieSuggestion/MovieSuggestionContainer'
+import { ParticlesBackground } from './components/ParticlesBackground/ParticlesBackground'
+import { SuccessAlert } from './components/Alerts/SuccessAlert'
+import { Wrapper } from './components/MovieSuggestion/MovieSuggestion'
 
 function App() {
   return (
     <div className="App">
-      <Switch>
-        <Route exact path={routes.homepage} component={HomeContainer} />
-        <Route
-          exact
-          path={routes.movie_suggestion}
-          component={MovieSuggestionContainer}
-        />
-      </Switch>
+      <StylesProvider injectFirst>
+        <Switch>
+          <Route exact path={routes.homepage} component={HomeContainer} />
+          <Route
+            exact
+            path={routes.movie_suggestion}
+            component={MovieSuggestionContainer}
+          />
+        </Switch>
+        <SuccessAlert />
+      </StylesProvider>
+      <ParticlesBackground />
     </div>
   )
 }

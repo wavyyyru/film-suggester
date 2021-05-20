@@ -1,5 +1,8 @@
 import axios from 'axios'
 import {
+  ADD_MOVIE_TO_FAVORITES,
+  HIDE_SUCCESS_ALERT,
+  SHOW_SUCCESS_ALERT,
   STORE_CHOSEN_GENRE_ENDPOINT,
   STORE_RANDOM_MOVIE,
   TOGGLE_INFO_UPDATE,
@@ -94,5 +97,33 @@ export function fetchMovieData(query) {
       }
       // console.log(error.config)
     }
+  }
+}
+
+export function addMovieToFavorites(movie) {
+  return (dispatch) => {
+    dispatch({
+      type: ADD_MOVIE_TO_FAVORITES,
+      payload: movie,
+    })
+  }
+}
+
+export function showSuccessAlert(alertText) {
+  debugger
+  return (dispatch) => {
+    dispatch({
+      type: SHOW_SUCCESS_ALERT,
+      payload: alertText,
+    })
+  }
+}
+
+export function hideSuccessAlert() {
+  debugger
+  return (dispatch) => {
+    dispatch({
+      type: HIDE_SUCCESS_ALERT,
+    })
   }
 }
