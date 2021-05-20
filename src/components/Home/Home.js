@@ -3,10 +3,10 @@
 /* eslint-disable react/require-default-props */
 import React from 'react'
 import { MenuItem, Typography } from '@material-ui/core'
+import Grow from '@material-ui/core/Grow'
 import { useFormik } from 'formik'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import styles from './Home.module.css'
 import mainartwork from '../../assets/homepage-art.png'
 import { genres } from '../../predefined_data/genres'
 import { routes } from '../../routes/routes'
@@ -24,6 +24,7 @@ import {
   HomeWrapper,
   SearchMovieButton,
 } from './Styled'
+import { FavoriteMoviesButton } from '../FavoriteMovies/FavoriteMoviesButton'
 
 export const Home = (props) => {
   const dispatch = useDispatch()
@@ -93,11 +94,14 @@ export const Home = (props) => {
               </SearchMovieButton>
             </GenreSelectForm>
           </HomeGridItem>
-          <HomeGridItem>
-            <HomeArt src={mainartwork} alt="Watching a movie" />
-          </HomeGridItem>
+          <Grow in timeout={1200} mountOnEnter unmountOnExit>
+            <HomeGridItem>
+              <HomeArt src={mainartwork} alt="Watching a movie" />
+            </HomeGridItem>
+          </Grow>
         </HomeGridContainer>
       </HomeGridWrapper>
+      <FavoriteMoviesButton />
     </HomeWrapper>
   )
 }

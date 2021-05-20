@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 import { Button, TextField } from '@material-ui/core'
 
-const pulseAnimation = keyframes`
+const jumpAnimation = keyframes`
   0% {
     transform: translateY(0px);
   }
@@ -68,7 +68,7 @@ export const SearchMovieButton = styled(Button)`
 
 export const HomeArt = styled.img`
   width: 900px;
-  animation-name: ${pulseAnimation};
+  animation-name: ${jumpAnimation};
   animation-duration: 2s;
   animation-iteration-count: infinite;
 `

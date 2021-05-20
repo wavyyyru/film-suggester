@@ -15,6 +15,7 @@ import {
   hideSuccessAlert,
   showSuccessAlert,
 } from '../../redux/appActions'
+import { FavoriteMoviesButton } from '../FavoriteMovies/FavoriteMoviesButton'
 
 export const Wrapper = styled.div`
   height: 100%;
@@ -203,6 +204,7 @@ export const MovieSuggestion = (props) => {
           </ButtonsContainer>
         </InfoContainer>
       </GridContainer>
+      <FavoriteMoviesButton />
     </Wrapper>
   )
 }
