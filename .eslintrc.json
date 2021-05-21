@@ -50,6 +50,7 @@
     "react/destructuring-assignment": "off",
     "no-debugger": "off",
     "consistent-return": "off",
-    "no-else-return": "off"
+    "no-else-return": "off",
+    "no-plusplus": "off"
   }
 }

@@ -2,6 +2,7 @@ import axios from 'axios'
 import {
   ADD_MOVIE_TO_FAVORITES,
   HIDE_SUCCESS_ALERT,
+  RETRIEVE_FAVORITE_MOVIES,
   SHOW_SUCCESS_ALERT,
   STORE_CHOSEN_GENRE_ENDPOINT,
   STORE_RANDOM_MOVIE,
@@ -120,10 +121,25 @@ export function showSuccessAlert(alertText) {
 }
 
 export function hideSuccessAlert() {
-  debugger
   return (dispatch) => {
     dispatch({
       type: HIDE_SUCCESS_ALERT,
+    })
+  }
+}
+
+export function retrieveFavoriteMovies() {
+  const localStorageObject = Object.entries(localStorage)
+  const favoriteMoviesArray = []
+  for (let i = 0; i < localStorageObject.length; i += 1) {
+    favoriteMoviesArray.push(JSON.parse(localStorageObject[i][1]))
+  }
+  debugger
+  // console.log(favoriteMoviesArray)
+  return (dispatch) => {
+    dispatch({
+      type: RETRIEVE_FAVORITE_MOVIES,
+      payload: favoriteMoviesArray,
     })
   }
 }
