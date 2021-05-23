@@ -8,6 +8,7 @@ import { MovieSuggestionContainer } from './components/MovieSuggestion/MovieSugg
 import { ParticlesBackground } from './components/ParticlesBackground/ParticlesBackground'
 import { SuccessAlert } from './components/Alerts/SuccessAlert'
 import { FavoriteMoviesContainer } from './components/FavoriteMovies/FavoriteMoviesContainer'
+import { InfoAlert } from './components/Alerts/InfoAlert'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           />
         </Switch>
         <SuccessAlert />
+        <InfoAlert />
       </StylesProvider>
       <ParticlesBackground />
     </div>

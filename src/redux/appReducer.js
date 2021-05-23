@@ -7,6 +7,8 @@ import {
   TOGGLE_INFO_UPDATE,
   HIDE_SUCCESS_ALERT,
   RETRIEVE_FAVORITE_MOVIES,
+  SHOW_INFO_ALERT,
+  HIDE_INFO_ALERT,
 } from './actionTypes'
 
 const initialState = {
@@ -16,6 +18,8 @@ const initialState = {
   randomFetchedMovie: null,
   successAlertIsOpen: false,
   successAlertText: '',
+  infoAlertIsOpen: false,
+  infoAlertText: '',
   favoriteMovies: null,
 }
 
@@ -51,6 +55,18 @@ export const appReducer = (state = initialState, action) => {
         ...state,
         successAlertIsOpen: false,
         successAlertText: '',
+      }
+    case SHOW_INFO_ALERT:
+      return {
+        ...state,
+        infoAlertIsOpen: true,
+        infoAlertText: action.payload,
+      }
+    case HIDE_INFO_ALERT:
+      return {
+        ...state,
+        infoAlertIsOpen: false,
+        infoAlertText: '',
       }
     case RETRIEVE_FAVORITE_MOVIES:
       return {

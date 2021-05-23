@@ -3,16 +3,7 @@
 /* eslint-disable react/require-default-props */
 import React from 'react'
 import styled from 'styled-components'
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Paper,
-  Typography,
-} from '@material-ui/core'
+import { Paper, Typography } from '@material-ui/core'
 import { MovieCardContainer } from './MovieCard/MovieCard'
 
 export const FavoriteMoviesWrapper = styled.div`
@@ -29,6 +20,7 @@ export const FavoriteMoviesPageTitle = styled(Typography)`
 export const FavoriteMoviesGridWrapper = styled.div`
   max-height: 90%;
   overflow-y: auto;
+  will-change: transform;
 
   &::-webkit-scrollbar {
     display: none;
@@ -37,16 +29,12 @@ export const FavoriteMoviesGridWrapper = styled.div`
 
 export const FavoriteMoviesGridContainer = styled(Paper)`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   grid-auto-rows: auto;
   background-color: rgba(228, 228, 228, 0.5);
   padding: 10px;
 `
-
-// export const FavoriteMovieItem = styled.div`
-//   //padding: 10px;
-// `
 
 export const FavoriteMovies = (props) => {
   return (
@@ -59,14 +47,12 @@ export const FavoriteMovies = (props) => {
         <FavoriteMoviesGridContainer>
           {props.favoriteMovies.map((movie) => {
             return (
-              // <FavoriteMovieItem>
               <MovieCardContainer
                 movieId={movie.id}
                 movieTitle={movie.title.title}
                 moviePoster={movie.title.image.url}
                 moviePlotOutline={movie.plotOutline.text}
               />
-              // </FavoriteMovieItem>
             )
           })}
         </FavoriteMoviesGridContainer>

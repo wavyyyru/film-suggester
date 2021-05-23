@@ -13,13 +13,21 @@ import {
 } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
 import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
+import {
+  deleteMovieFromFavorites,
+  hideInfoAlert,
+  hideSuccessAlert,
+  retrieveFavoriteMovies,
+  showInfoAlert,
+} from '../../../redux/appActions'
 
 export const MovieCard = styled(Card)`
   min-height: 100%;
 `
 
 export const MoviePlotOutline = styled(Typography)`
-  height: 80px;
+  height: 100px;
   overflow-y: auto;
 `
 
@@ -29,6 +37,7 @@ export const MoviePosterImage = styled(CardMedia)`
 
 export const RemoveMovieButton = styled(Button)`
   background-color: #e57373;
+  margin-top: 15px;
 
   &:hover {
     background-color: #f44336;
@@ -36,14 +45,11 @@ export const RemoveMovieButton = styled(Button)`
 `
 
 export const MovieCardContainer = (props) => {
-  debugger
+  const dispatch = useDispatch()
   return (
     <MovieCard>
       <CardActionArea>
-        <MoviePosterImage
-          image={props.moviePoster}
-          title="Contemplative Reptile"
-        />
+        <MoviePosterImage image={props.moviePoster} title={props.movieTitle} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {props.movieTitle}
@@ -54,13 +60,28 @@ export const MovieCardContainer = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <RemoveMovieButton variant="contained" size="small" color="primary">
+        <RemoveMovieButton
+          variant="contained"
+          size="small"
+          color="primary"
+          onClick={() => {
+            debugger
+            deleteMovieFromFavorites(props.movieId)
+            dispatch(retrieveFavoriteMovies())
+            dispatch(
+              showInfoAlert(`${props.movieTitle} was successfully removed`),
+            )
+            setTimeout(() => {
+              dispatch(hideInfoAlert())
+            }, 6000)
+          }}
+        >
           <DeleteIcon fontSize="small" />
           &nbsp; Remove movie
         </RemoveMovieButton>
-        <Button size="small" color="primary">
-          {props.movieId}
-        </Button>
+        {/*<Button size="small" color="primary">*/}
+        {/*  {props.movieId}*/}
+        {/*</Button>*/}
       </CardActions>
     </MovieCard>
   )
