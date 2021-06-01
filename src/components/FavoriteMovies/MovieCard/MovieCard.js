@@ -69,7 +69,9 @@ export const MovieCardContainer = (props) => {
             deleteMovieFromFavorites(props.movieId)
             dispatch(retrieveFavoriteMovies())
             dispatch(
-              showInfoAlert(`${props.movieTitle} was successfully removed`),
+              showInfoAlert(
+                `'${props.movieTitle}' було успішно видалено зі списку.`,
+              ),
             )
             setTimeout(() => {
               dispatch(hideInfoAlert())
@@ -77,7 +79,7 @@ export const MovieCardContainer = (props) => {
           }}
         >
           <DeleteIcon fontSize="small" />
-          &nbsp; Remove movie
+          &nbsp; Видалити фільм
         </RemoveMovieButton>
         {/*<Button size="small" color="primary">*/}
         {/*  {props.movieId}*/}

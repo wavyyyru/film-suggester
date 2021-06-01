@@ -154,7 +154,7 @@ export const MovieSuggestion = (props) => {
             <Typography variant="h6" component="p">
               <GradeIcon fontSize="small" />
               &nbsp;
-              {`IMDb rating: ${props.randomFetchedMovie.ratings.rating} / 10`}
+              {`Рейтинг IMDb: ${props.randomFetchedMovie.ratings.rating} / 10`}
             </Typography>
             {props.randomFetchedMovie.certificates ? (
               <Typography variant="caption" display="block">
@@ -165,12 +165,12 @@ export const MovieSuggestion = (props) => {
             <Typography variant="h6" component="p">
               <AccessTimeIcon fontSize="small" />
               &nbsp;
-              {`Running time: ${props.randomFetchedMovie.title.runningTimeInMinutes} minutes`}
+              {`Тривалість: ${props.randomFetchedMovie.title.runningTimeInMinutes} хв.`}
             </Typography>
           </ImdbRating>
           <PlotSummary>
             <PlotSummaryHeading component="h2" gutterBottom>
-              Plot summary
+              Загальний сюжет
             </PlotSummaryHeading>
             <Typography variant="body1">
               {props.randomFetchedMovie.plotSummary
@@ -186,20 +186,20 @@ export const MovieSuggestion = (props) => {
               }}
             >
               <RefreshIcon fontSize="small" />
-              &nbsp; Search again
+              &nbsp; Шукати знову
             </SearchAgainButton>
             <WatchLaterButton
               variant="contained"
               onClick={() => {
                 dispatch(addMovieToFavorites(props.randomFetchedMovie))
-                dispatch(showSuccessAlert("Saved to 'Favorites'"))
+                dispatch(showSuccessAlert("Збережено до 'Улюблених'"))
                 setTimeout(() => {
                   dispatch(hideSuccessAlert())
                 }, 6000)
               }}
             >
               <FavoriteIcon fontSize="small" />
-              &nbsp; Save to favorites
+              &nbsp; Зберегти до улюблених
             </WatchLaterButton>
           </ButtonsContainer>
         </InfoContainer>

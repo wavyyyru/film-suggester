@@ -55,7 +55,7 @@ export const FavoriteMoviesButton = () => {
         }}
       >
         <FavoriteIcon />
-        <FavoriteSign variant="button">Favorites</FavoriteSign>
+        <FavoriteSign variant="button">Улюблені</FavoriteSign>
       </FavoriteButtonWrapper>
     </Grow>
   )

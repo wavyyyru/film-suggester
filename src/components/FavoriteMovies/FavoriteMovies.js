@@ -40,8 +40,12 @@ export const FavoriteMovies = (props) => {
   return (
     <FavoriteMoviesWrapper>
       <FavoriteMoviesPageTitle variant="h4" component="h1">
-        Here are the movies you&apos;ve saved to watch later.
-        <Typography variant="subtitle1">Go ahead and pick one!</Typography>
+        Тут знаходяться фільми, які ти зберіг для подальшого перегляду.
+        {/*Here are the movies you&apos;ve saved to watch later.*/}
+        <Typography variant="subtitle1">
+          Обирай, не вагайся!
+          {/*Go ahead and pick one!*/}
+        </Typography>
       </FavoriteMoviesPageTitle>
       <FavoriteMoviesGridWrapper>
         <FavoriteMoviesGridContainer>

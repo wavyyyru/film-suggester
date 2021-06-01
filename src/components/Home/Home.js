@@ -59,20 +59,23 @@ export const Home = (props) => {
         <HomeGridContainer>
           <HomeGridItem>
             <Typography variant="h3" component="h1">
-              Hello there!
+              {/*Hello there!*/}
+              Привіт!
             </Typography>
             <Typography variant="subtitle1" gutterBottom>
-              Looking for a movie to watch? Let us find a proper one just for
-              you!
+              {/*Looking for a movie to watch? Let us find a proper one just for*/}
+              {/*you!*/}
+              Не знаєш, який фільм переглянути? Давай ми оберемо такий саме для
+              тебе!
             </Typography>
             <GenreSelectForm onSubmit={formik.handleSubmit}>
               <GenreSelect
                 variant="standard"
                 margin="dense"
                 id="chosenGenre"
-                label="Choose a genre"
+                label="Обери жанр"
                 select
-                placeholder="Choose a genre"
+                placeholder="Обери жанр"
                 type="text"
                 onChange={formik.handleChange('chosenGenreEndpoint')}
                 value={formik.values.chosenGenreEndpoint}
@@ -90,7 +93,8 @@ export const Home = (props) => {
                 color="primary"
                 type="submit"
               >
-                Find a movie!
+                {/*Find a movie!*/}
+                Шукати
               </SearchMovieButton>
             </GenreSelectForm>
           </HomeGridItem>

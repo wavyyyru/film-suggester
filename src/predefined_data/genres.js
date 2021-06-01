@@ -1,52 +1,52 @@
 export const genres = [
   {
     id: 0,
-    description: 'Action',
+    description: 'Екшн',
     endpoint: '/chart/popular/genre/action',
   },
   {
     id: 1,
-    description: 'Adventure',
+    description: 'Пригоди',
     endpoint: '/chart/popular/genre/adventure',
   },
   {
     id: 2,
-    description: 'Animation',
+    description: 'Анімаційний',
     endpoint: '/chart/popular/genre/animation',
   },
   {
     id: 3,
-    description: 'Biography',
+    description: 'Біографія',
     endpoint: '/chart/popular/genre/biography',
   },
   {
     id: 4,
-    description: 'Comedy',
+    description: 'Комедія',
     endpoint: '/chart/popular/genre/comedy',
   },
   {
     id: 5,
-    description: 'Crime',
+    description: 'Кримінал',
     endpoint: '/chart/popular/genre/crime',
   },
   {
     id: 6,
-    description: 'Documentary',
+    description: 'Документальний',
     endpoint: '/chart/popular/genre/documentary',
   },
   {
     id: 7,
-    description: 'Drama',
+    description: 'Драма',
     endpoint: '/chart/popular/genre/drama',
   },
   {
     id: 8,
-    description: 'Family',
+    description: 'Сімейний',
     endpoint: '/chart/popular/genre/family',
   },
   {
     id: 9,
-    description: 'Fantasy',
+    description: 'Фентезі',
     endpoint: '/chart/popular/genre/fantasy',
   },
   {
@@ -56,12 +56,12 @@ export const genres = [
   },
   {
     id: 11,
-    description: 'History',
+    description: 'Історичний',
     endpoint: '/chart/popular/genre/history',
   },
   {
     id: 12,
-    description: 'Horror',
+    description: 'Жахи',
     endpoint: '/chart/popular/genre/horror',
   },
 ]
